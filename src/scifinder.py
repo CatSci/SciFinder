@@ -52,8 +52,7 @@ def scifinder(cas_no):
     time.sleep(0.25)
 
 
-def get_info(source, cas_no, url = BASE_URL,):
-
+def get_info(source, cas_no, url = BASE_URL):
     if source == "scifinder":
         d = scifinder(cas_no= cas_no)
     else:
