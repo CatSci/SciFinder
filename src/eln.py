@@ -1,9 +1,16 @@
-from src.constant.eln_constant import API_BASE_URL, API_KEY
+from src.constant.eln_constant import API_BASE_URL
+import os
+from dotenv import load_dotenv
 import requests
 from flask import request
 import json
 import pandas as pd
 import numpy as np
+
+
+load_dotenv(".env")
+API_KEY = os.getenv("API_KEY")
+
 
 def get_col_id(response):
     content = 'Row Not Found'
@@ -67,6 +74,8 @@ def update_data(dataframe):
         'Content-Type': 'application/vnd.api+json',
         'x-api-key': API_KEY
     }
+
+
     patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
     if patch_response.ok:
         return 'true'
