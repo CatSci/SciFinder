@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+  min-height: 100vh;
+  background-color: #111b2b;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar{
+  background-color: #fff;
+}
+
+.navbar-brand img{
+  height: 70px;
+}
+
+img{
+  width: 80%;
+  margin: 1.2em 0 0 6.3em;
+
+}
+
+
+h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ed9439;
+}
+
+
+#table-container{
+  max-height: 600px;
+  overflow: auto;
+  box-sizing: content-box;
+}
+
+.table-style{
+  width: calc(100%- 50px);
+}
+
+.table-container::-webkit-scrollbar {
+  width: 6px; 
+}
+
+.table-container::-webkit-scrollbar-track {
+  display: none;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #ed9439; 
+  border-radius: 4px; 
+}
+
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    font-size: 16px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    background-color: #f2f2f2;
+  }
+
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+
+td {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    width: auto;
+    min-width: 100px;
+}
+
+
+
+.btn {
+    text-decoration: none;
+    background-color: #ed9439;
+    color: #111b2b;
+    padding: 10px 20px;
+    width: 150px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+  }
+.search{
+    margin: 30px 50px;
+    width: 150px;
+    align-items: center;
+}
+  
+.btn:hover{
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #111b2b;
+    padding: 10px 20px;
+    border: #111b2b;
+    outline: 1px solid #010101;
+}
+  
+.search:hover{
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #111b2b;
+    padding: 10px 20px;
+    border: #111b2b;
+    outline: 1px solid #010101;
+}
+  
+.update{
+    width: 230px !important;
+    margin-top: 15px;
+}
+
+
+.progress-bar {
+  background-color: #ed9439;
+  color: #111b2b;
+  font-weight: bold;
+}
+
+.progress-bar-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+
+
+  

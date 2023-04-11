@@ -1,0 +1,44 @@
+{
+    "data": [
+      {
+        "type": "adtRow",
+        "attributes": {
+          "action": "create",
+          "cells": [
+            {
+              "key": "39623078-db71-4b71-adf7-14daba201036",
+              "content": {
+                "value": "new value"
+              }
+            },
+            {
+              "key": "c5386098-633b-4b57-a981-c9abe2ded436",
+              "content": {
+                "value": "100"
+              }
+            }             
+          ]
+        }
+      },
+      {
+        "type": "adtRow",
+        "attributes": {
+          "action": "create",
+          "cells": [
+            {
+              "key": "39623078-db71-4b71-adf7-14daba201036",
+              "content": {
+                "value": "new value1"
+              }
+            },
+            {
+              "key": "c5386098-633b-4b57-a981-c9abe2ded436",
+              "content": {
+                "value": "101"
+              }
+            }             
+          ]
+        }
+      }
+    ]
+  }

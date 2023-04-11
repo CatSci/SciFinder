@@ -1,0 +1,1 @@
+BASE_URL = f"https://commonchemistry.cas.org/api/detail?cas_rn="

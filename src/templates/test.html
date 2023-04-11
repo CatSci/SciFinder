@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/testing.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../static/logo.png" alt="">
+
+            </a>
+        </div>
+    </nav>
+    <div class="container">
+    <header>CAS to InChI Converter</header>
+
+    <div class="card">
+
+        <form action="#">
+            <input type="file" class="file-input" hidden accept=".csv,.xlsx">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>Browse File to Uplaod</p>
+        </form>
+        <section class="progress-area">
+            <li class=" row">
+                <i class="fas fa-file-alt"></i>
+                <div class="content">
+                    <div class="details">
+                        <span class="name">CAS Numbers.xlsx &bull; Uploading</span>
+                        <span class="percent">50%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress">
+
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        </section>
+
+        <section class="uploaded-area">
+            <li class="row">
+                <div class="content">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="details">
+                        <span class="name">CAS Numbers.xlsx &bull; Uploaded</span>
+                        <span class="size">70 KB</span>
+                    </div>
+                </div>
+                <i class="fas fa-check"></i>
+            </li>
+        </section>
+    </div>
+
+    <script src="../js/test.js"></script>
+</body>
+
+</html>
