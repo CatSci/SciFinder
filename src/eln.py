@@ -11,13 +11,14 @@ from urllib.parse  import urlparse, parse_qs
 import requests
 
 # url = "https://cas2inchi.streamlit.app/?__eid=grid%3A13cce184-65a8-4153-9620-5aafbc9c2511"
-try:
-    url = requests.get('https://cas2inchi.streamlit.app/').url
-    parse_url = urlparse(url)
-    eid = parse_qs(parse_url.query)['__eid'][0]
-    st.write(eid)
-except Exception as e:
-    pass
+# try:
+url = requests.get('https://cas2inchi.streamlit.app/').url
+st.write(url)
+parse_url = urlparse(url)
+eid = parse_qs(parse_url.query)['__eid'][0]
+st.write(eid)
+# except Exception as e:
+    # pass
 
 
 
