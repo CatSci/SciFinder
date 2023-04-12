@@ -8,17 +8,19 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from urllib.parse  import urlparse, parse_qs
+import requests
 
-
-url = "https://cas2inchi.streamlit.app/?__eid=grid%3A13cce184-65a8-4153-9620-5aafbc9c2511"
+# url = "https://cas2inchi.streamlit.app/?__eid=grid%3A13cce184-65a8-4153-9620-5aafbc9c2511"
+url = requests.get('https://cas2inchi.streamlit.app/').url
 parse_url = urlparse(url)
 eid = parse_qs(parse_url.query)['__eid'][0]
+
 st.write(eid)
 
-# load_dotenv(".env")
-# API_KEY = os.getenv("API_KEY")
-# API_KEY = os.getenv("API_KEY")
-API_KEY = st.secrets["API_KEY"]
+load_dotenv(".env")
+API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")
+# API_KEY = st.secrets["API_KEY"]
 
 
 def get_col_id(response):
@@ -38,10 +40,10 @@ def get_col_id(response):
     return content, column_ids
 
 
-def update_data(dataframe):
-    identifier = 'grid:13cce184-65a8-4153-9620-5aafbc9c2511'
+def update_data(dataframe, eid):
+    # identifier = 'grid:13cce184-65a8-4153-9620-5aafbc9c2511'
 
-    url = API_BASE_URL + f'{identifier}?value=display'
+    url = API_BASE_URL + f'{eid}?value=display'
     headers = {
         'x-api-key': API_KEY
     }
@@ -78,7 +80,7 @@ def update_data(dataframe):
 
     payload = {"data": data}
 
-    patch_url = API_BASE_URL +  f'{identifier}?force=true&value=display'
+    patch_url = API_BASE_URL +  f'{eid}?force=true&value=display'
     patch_headers = {
         'Content-Type': 'application/vnd.api+json',
         'x-api-key': API_KEY
