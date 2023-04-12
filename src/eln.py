@@ -8,10 +8,12 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from urllib.parse  import urlparse, parse_qs
-import requests
 
-response = requests.get('https://cas2inchi.streamlit.app/')
-st.write(response.url)
+
+url = "https://cas2inchi.streamlit.app/?__eid=grid%3A13cce184-65a8-4153-9620-5aafbc9c2511"
+parse_url = urlparse(url)
+eid = parse_qs(parse_url.query)['__eid'][0]
+st.write(eid)
 
 # load_dotenv(".env")
 # API_KEY = os.getenv("API_KEY")
