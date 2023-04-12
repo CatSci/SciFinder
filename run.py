@@ -64,7 +64,7 @@ if st.button('Search'):
     # add try except instead if uploaded_files
     query_params = st.experimental_get_query_params()
     st.write(query_params)
-    eid = query_params[0]
+    eid = query_params['__eid'][0]
     st.write(eid)
     try:
         filename = uploaded_file.name
