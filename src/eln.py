@@ -11,26 +11,7 @@ from urllib.parse  import urlparse, parse_qs
 import requests
 
 
-# from streamlit_javascript import st_javascript
 
-
-
-# st.write('hi')
-
-# url = st_javascript("await fetch('').then(r => window.parent.location.href)")
-# st.write(url)
-
-# # Parse the URL to extract the query string
-# parsed_url = urlparse(url)
-
-# # Parse the query string to extract the value of the "eid" parameter
-# eid = parse_qs(parsed_url.query).get('__eid', None)
-
-# # Print the value of the "eid" parameter
-# if eid is not None and len(eid) > 0:
-#     st.write("eid:", eid[0])
-# else:
-#     st.write("eid not found in URL.")
 
 
 # load_dotenv(".env")
@@ -57,7 +38,6 @@ def get_col_id(response):
 
 
 def update_data(dataframe, eid):
-    # eid = 'grid:13cce184-65a8-4153-9620-5aafbc9c2511'
 
     url = API_BASE_URL + f'{eid}?value=display'
     headers = {
