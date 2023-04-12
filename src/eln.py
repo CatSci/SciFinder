@@ -7,11 +7,6 @@ import json
 import pandas as pd
 import numpy as np
 import streamlit as st
-from urllib.parse  import urlparse, parse_qs
-import requests
-
-
-
 
 
 # load_dotenv(".env")

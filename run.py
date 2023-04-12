@@ -51,6 +51,17 @@ div.stButton > button:first-child:focus {
 }
 </style>""", unsafe_allow_html=True)
 
+
+# hide streamlit style
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
 st.title("CAS Number to InChI Converter")
 st.info('Please make sure you cas value column name is **CAS Number**')
 
@@ -63,7 +74,8 @@ api_input = st.radio("Select an API", ('PubChem', 'SciFinder'))
 if st.button('Search'):
     # add try except instead if uploaded_files
     query_params = st.experimental_get_query_params()
-    eid = query_params['__eid'][0]
+    if query_params:
+        eid = query_params['__eid'][0]
     try:
         filename = uploaded_file.name
         if ".xlsx" in filename:
