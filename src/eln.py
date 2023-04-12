@@ -13,8 +13,7 @@ import requests
 
 from streamlit_javascript import st_javascript
 
-query_params = st.experimental_get_query_params()
-st.write(query_params)
+
 
 # st.write('hi')
 
