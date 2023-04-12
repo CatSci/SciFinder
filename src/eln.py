@@ -6,10 +6,12 @@ from flask import request
 import json
 import pandas as pd
 import numpy as np
+import streamlit as st
 
-
-load_dotenv(".env")
-API_KEY = os.getenv("API_KEY")
+# load_dotenv(".env")
+# API_KEY = os.getenv("API_KEY")
+# API_KEY = os.getenv("API_KEY")
+API_KEY = st.secrets["API_KEY"]
 
 
 def get_col_id(response):
