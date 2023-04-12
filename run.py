@@ -75,7 +75,7 @@ if st.button('Search'):
         if api_input == "SciFinder":
             df = get_data(df= df, source= "scifinder")
 
-        st.dataframe(df)
+        # st.dataframe(df)
         st.info('Uplaoding data to ELN')
         var = update_data(dataframe= df)
         if var == 'true':
@@ -86,5 +86,5 @@ if st.button('Search'):
         
 
     except Exception as e:
-        st.error('File not uplaoded or correct file not uplaoded')
+        st.error(e)
     

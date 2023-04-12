@@ -7,6 +7,11 @@ import json
 import pandas as pd
 import numpy as np
 import streamlit as st
+from urllib.parse  import urlparse, parse_qs
+import requests
+
+response = requests.get('https://cas2inchi.streamlit.app/')
+st.write(response.url)
 
 # load_dotenv(".env")
 # API_KEY = os.getenv("API_KEY")
