@@ -26,8 +26,7 @@ eid = parse_qs(parsed_url.query).get('__eid', None)
 
 # Print the value of the "eid" parameter
 if eid is not None and len(eid) > 0:
-    # print("eid:", eid[0])
-    st.write(eid)
+    st.write("eid:", eid[0])
 else:
     st.write("eid not found in URL.")
 
