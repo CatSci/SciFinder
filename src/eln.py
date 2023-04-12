@@ -26,8 +26,8 @@ eid = parse_qs(parsed_url.query).get('__eid', None)
 if eid is not None and len(eid) > 0:
     # print("eid:", eid[0])
     st.write(eid)
-# else:
-#     print("eid not found in URL.")
+else:
+    st.write("eid not found in URL.")
 
 
 # load_dotenv(".env")
