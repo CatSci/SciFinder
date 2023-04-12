@@ -75,7 +75,7 @@ if st.button('Search'):
         if api_input == "SciFinder":
             df = get_data(df= df, source= "scifinder")
 
-        st.write(df)
+        st.dataframe(df)
         st.info('Uplaoding data to ELN')
         var = update_data(dataframe= df)
         if var == 'true':
