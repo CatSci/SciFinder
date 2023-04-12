@@ -11,7 +11,7 @@ from urllib.parse  import urlparse, parse_qs
 import requests
 
 
-from streamlit_javascript import st_javascript
+# from streamlit_javascript import st_javascript
 
 
 
@@ -56,8 +56,8 @@ def get_col_id(response):
     return content, column_ids
 
 
-def update_data(dataframe):
-    eid = 'grid:13cce184-65a8-4153-9620-5aafbc9c2511'
+def update_data(dataframe, eid):
+    # eid = 'grid:13cce184-65a8-4153-9620-5aafbc9c2511'
 
     url = API_BASE_URL + f'{eid}?value=display'
     headers = {
