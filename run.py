@@ -63,6 +63,7 @@ api_input = st.radio("Select an API", ('PubChem', 'SciFinder'))
 if st.button('Search'):
     # add try except instead if uploaded_files
     query_params = st.experimental_get_query_params()
+    st.write(query_params)
     eid = query_params[0]
     st.write(eid)
     try:
