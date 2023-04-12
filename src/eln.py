@@ -10,16 +10,24 @@ import streamlit as st
 from urllib.parse  import urlparse, parse_qs
 import requests
 
-# url = "https://cas2inchi.streamlit.app/?__eid=grid%3A13cce184-65a8-4153-9620-5aafbc9c2511"
-# try:
-url = requests.get('https://cas2inchi.streamlit.app/').url
-st.write(url)
-parse_url = urlparse(url)
-eid = parse_qs(parse_url.query)['__eid'][0]
-st.write(eid)
-# except Exception as e:
-    # pass
 
+from streamlit_javascript import st_javascript
+
+url = st_javascript("await fetch('').then(r => window.parent.location.href)")
+st.write(url)
+
+# Parse the URL to extract the query string
+parsed_url = urlparse(url)
+
+# Parse the query string to extract the value of the "eid" parameter
+eid = parse_qs(parsed_url.query).get('__eid', None)
+
+# Print the value of the "eid" parameter
+if eid is not None and len(eid) > 0:
+    # print("eid:", eid[0])
+    st.write(eid)
+# else:
+#     print("eid not found in URL.")
 
 
 # load_dotenv(".env")
