@@ -13,22 +13,24 @@ import requests
 
 from streamlit_javascript import st_javascript
 
-st.write('hi')
+st.experimental_get_query_params()
 
-url = st_javascript("await fetch('').then(r => window.parent.location.href)")
-st.write(url)
+# st.write('hi')
 
-# Parse the URL to extract the query string
-parsed_url = urlparse(url)
+# url = st_javascript("await fetch('').then(r => window.parent.location.href)")
+# st.write(url)
 
-# Parse the query string to extract the value of the "eid" parameter
-eid = parse_qs(parsed_url.query).get('__eid', None)
+# # Parse the URL to extract the query string
+# parsed_url = urlparse(url)
 
-# Print the value of the "eid" parameter
-if eid is not None and len(eid) > 0:
-    st.write("eid:", eid[0])
-else:
-    st.write("eid not found in URL.")
+# # Parse the query string to extract the value of the "eid" parameter
+# eid = parse_qs(parsed_url.query).get('__eid', None)
+
+# # Print the value of the "eid" parameter
+# if eid is not None and len(eid) > 0:
+#     st.write("eid:", eid[0])
+# else:
+#     st.write("eid not found in URL.")
 
 
 # load_dotenv(".env")
