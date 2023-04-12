@@ -13,6 +13,8 @@ import requests
 
 from streamlit_javascript import st_javascript
 
+st.write('hi')
+
 url = st_javascript("await fetch('').then(r => window.parent.location.href)")
 st.write(url)
 
