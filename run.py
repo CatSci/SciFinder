@@ -32,7 +32,7 @@ st.markdown("""
 
 st.markdown("""
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-  <a class="navbar-brand" href="https://catsci-sst-visualization.streamlit.app/" target="_blank">CatSci</a>
+  <a class="navbar-brand" href="#" target="_blank">CatSci</a>
   
 
 </nav>
