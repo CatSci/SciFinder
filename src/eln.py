@@ -16,6 +16,7 @@ import sys
 # API_KEY = os.getenv("API_KEY")
 # API_KEY = os.getenv("API_KEY")
 API_KEY = st.secrets["API_KEY"]
+st.write(API_KEY)
 
 
 def get_col_id(response):
