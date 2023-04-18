@@ -62,6 +62,9 @@ st.info('Please make sure you cas value column name is **CAS Number**')
 
 uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
 api_input = st.radio("Select an API", ('PubChem', 'SciFinder'))
+
+api_key = st.text_input('API KEY', placeholder= 'Enter your API Key', type= 'password')
+
 # scifinder_check = st.radio('SciFinder')
 
 if st.button('Search'):
@@ -86,7 +89,7 @@ if st.button('Search'):
 
         # st.dataframe(df)
         st.info('Uploading data to ELN')
-        var = update_data(dataframe= df, eid = eid)
+        var = update_data(dataframe= df, eid = eid, api_key = api_key)
         if var == 'true':
             st.success('Data Uploaded Successfully')
         else:

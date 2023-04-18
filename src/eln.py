@@ -15,8 +15,8 @@ import sys
 # load_dotenv(".env")
 # API_KEY = os.getenv("API_KEY")
 
-API_KEY = st.secrets["API_KEY"]
-st.write(API_KEY)
+# API_KEY = st.secrets["API_KEY"]
+# st.write(API_KEY)
 
 
 
@@ -37,11 +37,11 @@ def get_col_id(response):
     return content, column_ids
 
 
-def update_data(dataframe, eid):
+def update_data(dataframe, eid, api_key):
 
     url = API_BASE_URL + f'{eid}?value=display'
     headers = {
-        'x-api-key': API_KEY
+        'x-api-key': api_key
     }
     response = requests.get(url, headers=headers)
 
@@ -79,10 +79,10 @@ def update_data(dataframe, eid):
     patch_url = API_BASE_URL +  f'{eid}?force=true&value=display'
     patch_headers = {
         'Content-Type': 'application/vnd.api+json',
-        'x-api-key': API_KEY
+        'x-api-key': api_key
     }
 
-    st.write(payload)
+    
     try:
         patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
     except Exception as e:
