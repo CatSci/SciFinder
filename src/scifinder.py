@@ -12,6 +12,7 @@ from src.constant.pubchem import PUBCHEM_URL, PROPERTY
 # BASE_URL = f"https://commonchemistry.cas.org/api/detail?cas_rn="
 
 def pubchem(cas_no):
+    st.write('Pubchem')
     url = url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{cas_no}/property/CanonicalSMILES,InChi/JSON"
 
     response = requests.get(url)
@@ -32,6 +33,7 @@ def pubchem(cas_no):
     time.sleep(0.25)
 
 def scifinder(cas_no):
+    st.write('Scifinder')
     url = BASE_URL + cas_no
 
     response = requests.get(url)
