@@ -8,6 +8,9 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
+from src.exception import CustomException
+import sys
+
 
 # load_dotenv(".env")
 # API_KEY = os.getenv("API_KEY")
@@ -77,8 +80,10 @@ def update_data(dataframe, eid):
         'x-api-key': API_KEY
     }
 
-
-    patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
+    try:
+        patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
+    except Exception as e:
+        raise CustomException(e, sys)
     if patch_response.ok:
         return 'true'
     else:
