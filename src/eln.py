@@ -81,10 +81,9 @@ def update_data(dataframe, eid):
         'x-api-key': API_KEY
     }
 
-    try:
-        patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
-    except Exception as e:
-        raise CustomException(e, sys)
+    st.write(payload)
+    patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
+
     if patch_response.ok:
         return 'true'
     else:
