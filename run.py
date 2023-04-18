@@ -88,7 +88,8 @@ if st.button('Search'):
         if var == 'true':
             st.success('Data Uploaded Successfully')
         else:
-            st.error('data Was not uploaded')       
+            st.error('data Was not uploaded') 
+            st.error(var)      
 
     except Exception as e:
         st.error(e)
