@@ -60,7 +60,7 @@ st.info('Please make sure you cas value column name is **CAS Number**')
 
     
 
-uploaded_file = st.file_uploader("Choose a file")
+uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
 api_input = st.radio("Select an API", ('PubChem', 'SciFinder'))
 # scifinder_check = st.radio('SciFinder')
 
