@@ -83,12 +83,12 @@ if st.button('Search'):
             df = get_data(df= df, source= "scifinder")
 
         # st.dataframe(df)
-        st.info('Uplaoding data to ELN')
+        st.info('Uploading data to ELN')
         var = update_data(dataframe= df, eid = eid)
         if var == 'true':
-            st.success('Data Uplaoded Successfully')
+            st.success('Data Uploaded Successfully')
         else:
-            st.error('data Was not uplaoded')       
+            st.error('data Was not uploaded')       
 
     except Exception as e:
         st.error(e)
