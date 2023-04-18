@@ -14,9 +14,10 @@ import sys
 
 # load_dotenv(".env")
 # API_KEY = os.getenv("API_KEY")
-# API_KEY = os.getenv("API_KEY")
+
 API_KEY = st.secrets["API_KEY"]
 st.write(API_KEY)
+
 
 
 def get_col_id(response):
@@ -82,7 +83,10 @@ def update_data(dataframe, eid):
     }
 
     st.write(payload)
-    patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
+    try:
+        patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
+    except Exception as e:
+        raise CustomException(e, sys)
 
     if patch_response.ok:
         return 'true'

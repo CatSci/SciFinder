@@ -69,6 +69,8 @@ if st.button('Search'):
     query_params = st.experimental_get_query_params()
     if query_params:
         eid = query_params['__eid'][0]
+    else:
+        eid = "grid:83f27623-3a99-4502-8127-7ecf74d947a7"
     try:
         filename = uploaded_file.name
         if ".xlsx" in filename:
