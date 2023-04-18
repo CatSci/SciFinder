@@ -12,7 +12,7 @@ from src.constant.pubchem import PUBCHEM_URL, PROPERTY
 # BASE_URL = f"https://commonchemistry.cas.org/api/detail?cas_rn="
 
 def pubchem(cas_no):
-    st.write('Pubchem')
+    st.write('PubChem')
     url = url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/{cas_no}/property/CanonicalSMILES,InChi/JSON"
 
     response = requests.get(url)
