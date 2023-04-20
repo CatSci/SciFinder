@@ -36,13 +36,13 @@ def get_col_id(response):
     return content, column_ids
 
 
-def update_data(dataframe, eid, api_key):
+def update_data(dataframe, eid):
 
     try:
 
         url = API_BASE_URL + f'{eid}?value=display'
         headers = {
-            'x-api-key': api_key
+            'x-api-key': API_KEY
         }
         response = requests.get(url, headers=headers)
 
@@ -80,7 +80,7 @@ def update_data(dataframe, eid, api_key):
         patch_url = API_BASE_URL +  f'{eid}?force=true&value=display'
         patch_headers = {
             'Content-Type': 'application/vnd.api+json',
-            'x-api-key': api_key
+            'x-api-key': API_KEY
         }
     
         patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)

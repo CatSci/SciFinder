@@ -86,7 +86,7 @@ if st.button('Search'):
         # st.dataframe(df)
         st.info('Uploading data to ELN')
         try:
-            var = update_data(dataframe=df, eid=eid, api_key=api_key)
+            var = update_data(dataframe=df, eid=eid)
             if var == True:
                 st.success('Data Uploaded Successfully')
             else:
