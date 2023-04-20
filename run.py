@@ -70,8 +70,6 @@ if st.button('Search'):
     query_params = st.experimental_get_query_params()
     if query_params:
         eid = query_params['__eid'][0]
-    else:
-        st.error('eid is not correct')
     try:
         filename = uploaded_file.name
         if ".xlsx" in filename:
