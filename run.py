@@ -63,8 +63,6 @@ st.info('Please make sure you cas value column name is **CAS Number**')
 uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
 api_input = st.radio("Select an API", ('PubChem', 'SciFinder'))
 
-api_key = st.text_input('API KEY', placeholder= 'Enter your API Key', type= 'password', value= "NvPkEXLMW96UwVjsF+dDAjs8CROAtlXFG9dc9o38HTTZ/6dTIrV1sWELAa0vRvVqHHawTg==")
-
 # scifinder_check = st.radio('SciFinder')
 
 if st.button('Search'):
@@ -73,8 +71,7 @@ if st.button('Search'):
     if query_params:
         eid = query_params['__eid'][0]
     else:
-        eid = "grid:453a6a3d-0660-4524-aee5-e3f4a98446ab"     # sam
-        # eid = "grid:3099e22d-e8cf-41c8-aee6-beb73c68adeb"     # atul
+        st.error('eid is not correct')
     try:
         filename = uploaded_file.name
         if ".xlsx" in filename:

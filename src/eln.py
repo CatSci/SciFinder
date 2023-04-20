@@ -15,8 +15,7 @@ import sys
 # load_dotenv(".env")
 # API_KEY = os.getenv("API_KEY")
 
-# API_KEY = st.secrets["API_KEY"]
-# st.write(API_KEY)
+API_KEY = st.secrets["API_KEY"]
 
 
 
