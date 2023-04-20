@@ -39,56 +39,71 @@ def get_col_id(response):
 
 def update_data(dataframe, eid, api_key):
 
-    url = API_BASE_URL + f'{eid}?value=display'
-    headers = {
-        'x-api-key': api_key
-    }
-    response = requests.get(url, headers=headers)
-
-    content, column_ids = get_col_id(response= response)
-
-    data = []
-    for row_idx in range(dataframe.shape[0]):
-        cell_data = []
-        for col_idx, col_ids in enumerate(column_ids):
-            value = dataframe.iloc[row_idx, col_idx]
-            if pd.isna(value):
-                # Handle NaN and infinity values
-                cell_data.append({
-                    'key': column_ids[col_ids],
-                    'content': None  # Set to null if value is not valid JSON
-                })
-            else:
-                cell_data.append({
-                    'key': column_ids[col_ids],
-                    'content': {
-                        'value': dataframe.iloc[row_idx, col_idx]
-                    }
-                })
-        
-        data.append({
-            'type': 'adtRow',
-            'attributes': {
-                'action': 'create',
-                'cells': cell_data        
-            }
-        })
-
-    payload = {"data": data}
-
-    patch_url = API_BASE_URL +  f'{eid}?force=true&value=display'
-    patch_headers = {
-        'Content-Type': 'application/vnd.api+json',
-        'x-api-key': api_key
-    }
-
-    
     try:
-        patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
-    except Exception as e:
-        raise CustomException(e, sys)
 
-    if patch_response.ok:
-        return 'true'
-    else:
-        return f"Error adding data: {patch_response.status_code}"
+        url = API_BASE_URL + f'{eid}?value=display'
+        headers = {
+            'x-api-key': api_key
+        }
+        response = requests.get(url, headers=headers)
+
+        content, column_ids = get_col_id(response= response)
+
+        data = []
+        for row_idx in range(dataframe.shape[0]):
+            cell_data = []
+            for col_idx, col_ids in enumerate(column_ids):
+                value = dataframe.iloc[row_idx, col_idx]
+                if pd.isna(value):
+                    # Handle NaN and infinity values
+                    cell_data.append({
+                        'key': column_ids[col_ids],
+                        'content': None  # Set to null if value is not valid JSON
+                    })
+                else:
+                    cell_data.append({
+                        'key': column_ids[col_ids],
+                        'content': {
+                            'value': dataframe.iloc[row_idx, col_idx]
+                        }
+                    })
+            
+            data.append({
+                'type': 'adtRow',
+                'attributes': {
+                    'action': 'create',
+                    'cells': cell_data        
+                }
+            })
+
+        payload = {"data": data}
+
+        patch_url = API_BASE_URL +  f'{eid}?force=true&value=display'
+        patch_headers = {
+            'Content-Type': 'application/vnd.api+json',
+            'x-api-key': api_key
+        }
+    
+        patch_response = requests.patch(patch_url, json=payload, headers=patch_headers)
+
+
+        if patch_response.ok:
+            return True
+        else:
+            try:
+                error_json = json.loads(patch_response.content)
+                error_msg = error_json['errors'][0]['title']
+                return f"Error adding data: {patch_response.status_code}. Details: {error_msg}{error_json}"
+            except:
+                return f"Error adding data: {patch_response.status_code}"
+    except Exception as e:
+        return f"Error adding data: {str(e)}"
+
+
+
+
+
+
+
+# https://catsci-sandbox.signalsnotebook.perkinelmercloud.eu/api/rest/v1.0/adt/grid%3A453a6a3d-0660-4524-aee5-e3f4a98446ab?force=true&value=display
+# https://catsci-sandbox.signalsnotebook.perkinelmercloud.eu/api/rest/v1.0/adt/grid%3A453a6a3d-0660-4524-aee5-e3f4a98446ab?force=true&value=display

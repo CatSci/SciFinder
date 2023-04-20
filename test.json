@@ -1,44 +1,58 @@
 {
-    "data": [
-      {
-        "type": "adtRow",
-        "attributes": {
-          "action": "create",
-          "cells": [
-            {
-              "key": "39623078-db71-4b71-adf7-14daba201036",
-              "content": {
-                "value": "new value"
-              }
-            },
-            {
-              "key": "c5386098-633b-4b57-a981-c9abe2ded436",
-              "content": {
-                "value": "100"
-              }
-            }             
-          ]
-        }
+  "links": {
+    "self": "https://catsci-sandbox.signalsnotebook.perkinelmercloud.eu/api/rest/v1.0/adt/grid:453a6a3d-0660-4524-aee5-e3f4a98446ab"
+  },
+  "data": [],
+  "included": [
+    {
+      "type": "entity",
+      "id": "grid:453a6a3d-0660-4524-aee5-e3f4a98446ab",
+      "links": {
+        "self": "https://catsci-sandbox.signalsnotebook.perkinelmercloud.eu/api/rest/v1.0/entities/grid:453a6a3d-0660-4524-aee5-e3f4a98446ab"
       },
-      {
-        "type": "adtRow",
-        "attributes": {
-          "action": "create",
-          "cells": [
-            {
-              "key": "39623078-db71-4b71-adf7-14daba201036",
-              "content": {
-                "value": "new value1"
-              }
-            },
-            {
-              "key": "c5386098-633b-4b57-a981-c9abe2ded436",
-              "content": {
-                "value": "101"
-              }
-            }             
-          ]
+      "attributes": {
+        "type": "grid",
+        "eid": "grid:453a6a3d-0660-4524-aee5-e3f4a98446ab",
+        "name": "CAS_to_InChI",
+        "digest": "70963021",
+        "fields": {
+          "Description": {
+            "value": ""
+          },
+          "Name": {
+            "value": "CAS_to_InChI"
+          }
         }
       }
-    ]
-  }
+    },
+    {
+      "type": "columnDefinitions",
+      "id": "grid:453a6a3d-0660-4524-aee5-e3f4a98446ab",
+      "attributes": {
+        "id": "grid:453a6a3d-0660-4524-aee5-e3f4a98446ab",
+        "type": "columnDefinitions",
+        "templateId": "grid:40e48dc0-c9be-40cf-a7d0-7a08665b01a6",
+        "columns": [
+          {
+            "key": "eaeca4ff-1e8f-450d-b2a3-908cb9557e96",
+            "title": "CAS Number",
+            "type": "text",
+            "saved": true
+          },
+          {
+            "key": "b3eb70e6-3c45-4801-88ba-35ee07c7cd35",
+            "title": "Smiles",
+            "type": "text",
+            "saved": true
+          },
+          {
+            "key": "fa410270-2d2e-4bf6-9dec-c41cc5962bc7",
+            "title": "InChI",
+            "type": "text",
+            "saved": true
+          }
+        ]
+      }
+    }
+  ]
+}

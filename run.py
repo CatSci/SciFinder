@@ -63,7 +63,7 @@ st.info('Please make sure you cas value column name is **CAS Number**')
 uploaded_file = st.file_uploader("Choose a file", type = ['csv', 'xlsx'])
 api_input = st.radio("Select an API", ('PubChem', 'SciFinder'))
 
-api_key = st.text_input('API KEY', placeholder= 'Enter your API Key', type= 'password')
+api_key = st.text_input('API KEY', placeholder= 'Enter your API Key', type= 'password', value= "NvPkEXLMW96UwVjsF+dDAjs8CROAtlXFG9dc9o38HTTZ/6dTIrV1sWELAa0vRvVqHHawTg==")
 
 # scifinder_check = st.radio('SciFinder')
 
@@ -73,7 +73,8 @@ if st.button('Search'):
     if query_params:
         eid = query_params['__eid'][0]
     else:
-        eid = "grid:83f27623-3a99-4502-8127-7ecf74d947a7"
+        eid = "grid:453a6a3d-0660-4524-aee5-e3f4a98446ab"     # sam
+        # eid = "grid:3099e22d-e8cf-41c8-aee6-beb73c68adeb"     # atul
     try:
         filename = uploaded_file.name
         if ".xlsx" in filename:
@@ -89,13 +90,21 @@ if st.button('Search'):
 
         # st.dataframe(df)
         st.info('Uploading data to ELN')
-        var = update_data(dataframe= df, eid = eid, api_key = api_key)
-        if var == 'true':
-            st.success('Data Uploaded Successfully')
-        else:
-            st.error('data Was not uploaded') 
-            st.error(var)      
+        try:
+            var = update_data(dataframe=df, eid=eid, api_key=api_key)
+            if var == True:
+                st.success('Data Uploaded Successfully')
+            else:
+                st.error('Data was not uploaded')
+                st.error(var)
+        except Exception as e:
+            st.error(f"An error occurred while uploading data: {str(e)}")    
 
     except Exception as e:
         st.error(e)
     
+
+
+
+# https://catsci-sandbox.signalsnotebook.perkinelmercloud.eu/api/rest/v1.0/adt/grid%3A453a6a3d-0660-4524-aee5-e3f4a98446ab?value=display
+# https://catsci-sandbox.signalsnotebook.perkinelmercloud.eu/api/rest/v1.0/adt/grid%3A453a6a3d-0660-4524-aee5-e3f4a98446ab?value=display
